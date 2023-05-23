@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 
 yolov7 = YOLOv7()
-yolov7.load('coco.weights', classes='coco.yaml', device='cpu') # use 'gpu' for CUDA GPU inference
+yolov7.load('coco.weights', classes='coco.yaml', device='cpu') 
 
 video = cv2.VideoCapture('video.mp4')
 width  = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -75,7 +75,6 @@ try:
                         counted_vehicles.add(detection_id)
                         vehicle_count += 1
             
-            # Draw vehicle count on frame
             detected_frame = cv2.putText(detected_frame, f"Vehicle Count: {vehicle_count}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             
             output.write(detected_frame)
